@@ -11,12 +11,12 @@ services:
     image: mongodb:v1
     container_name: mongodb
     volumes:
-      - soruce: mongodb 
+      - source: mongodb 
         target: /data/db
         type: volume
 
     ports:
-      -"27017":"27017"
+    - "27017:27017"
 
   catalogue:
     image: catalogue:v1
@@ -30,7 +30,7 @@ services:
     image: redis
     container_name: redis
     volumes:
-      - soruce: redis
+      - source: redis
         target: /data
         type: volume
 
@@ -51,6 +51,6 @@ services:
     depends_on:
       - catalogue
     ports:
-      -"80:80"
+    - "80:80"
 
   
