@@ -11,9 +11,9 @@ services:
     image: mongodb
     container_name: mongodb
     volumes:
-      - source: mongodb 
-        target: /data/db
-        type: volume
+    - source: mongodb 
+      target: /data/db
+      type: volume
 
     ports:
     - "27017:27017"
@@ -22,34 +22,34 @@ services:
     image: catalogue
     container_name: catalogue
     networks:
-      - roboshop
+    - roboshop
     depends_on:
-      - mongodb
+    - mongodb
 
   redis:
     image: redis
     container_name: redis
     volumes:
-      - source: redis
-        target: /data
-        type: volume
+    - source: redis
+      target: /data
+      type: volume
 
   cart:
     image: cart
     container_name: cart
     networks:
-      - roboshop
+    - roboshop
     depends_on:
-      - catalogue
-      - redis
+    - catalogue
+    - redis
 
   web:
     image: web
     container_name: web
     networks:
-      - roboshop
+    - roboshop
     depends_on:
-      - catalogue
+    - catalogue
     ports:
     - "80:80"
 
