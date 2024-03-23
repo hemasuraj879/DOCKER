@@ -4,6 +4,9 @@ FROM node:latest
 # Setting up workdir
 WORKDIR /app
 
+# Setting up environment variables
+ENV CATALOGUE_PORT=8080
+
 # Copy source code
 COPY package.json .
 COPY server.js .
