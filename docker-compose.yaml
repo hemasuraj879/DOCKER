@@ -4,6 +4,7 @@ networks:
 
 volumes:
   mongodb:
+  redis:
 
 services:
   mongodb:
@@ -23,6 +24,13 @@ services:
       - roboshop
     depends_on:
       - mongodb
+
+  redis:
+    image: redis:v1
+    container_name: redis
+    volumes:
+      - soruce: redis
+        target: /data
 
   web:
     image: web:v1
