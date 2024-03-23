@@ -1,21 +1,10 @@
-# Use nodejs official docker image
-FROM node:latest
-
-# Setting up workdir
+FROM node:14.21.3-alpine3.17
+EXPOSE 8080
+RUN addgroup -S cart && adduser -S cart cart
 WORKDIR /app
-
-# Setting up environment variables
-ENV CATALOGUE_PORT=8080
-
-# Copy source code
+RUN chown -R cart:cart /app
+USER cart
 COPY package.json .
 COPY server.js .
-
-# Install dependencies
 RUN npm install
-
-# Expose port number
-EXPOSE 8080
-
-# Command to start the application
 CMD ["node", "server.js"]
