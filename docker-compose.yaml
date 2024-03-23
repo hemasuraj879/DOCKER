@@ -10,6 +10,8 @@ services:
   mongodb:
     image: mongodb
     container_name: mongodb
+    networks:
+      - roboshop
     volumes:
     - source: mongodb 
       target: /data/db
@@ -22,13 +24,15 @@ services:
     image: catalogue
     container_name: catalogue
     networks:
-    - roboshop
+      - roboshop
     depends_on:
     - mongodb
 
   redis:
     image: redis
     container_name: redis
+    networks:
+      - roboshop
     volumes:
     - source: redis
       target: /data
@@ -38,7 +42,7 @@ services:
     image: cart
     container_name: cart
     networks:
-    - roboshop
+      - roboshop
     depends_on:
     - catalogue
     - redis
@@ -47,7 +51,7 @@ services:
     image: web
     container_name: web
     networks:
-    - roboshop
+      - roboshop
     depends_on:
     - catalogue
     ports:
