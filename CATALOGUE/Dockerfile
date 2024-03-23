@@ -9,7 +9,7 @@ COPY server.js .
 COPY catalogue.json .
 
 # Install the dependencies
-RUN npm Install
+RUN npm install
 
 # Setting up environment variables
 ENV MONGO=true
