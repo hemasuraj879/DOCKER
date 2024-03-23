@@ -1,7 +1,6 @@
 FROM node:14.21.3-alpine3.17
 EXPOSE 8080
 RUN addgroup -S cart && adduser -S cart cart
-RUN sed -i '1i\redis    redis' /etc/hosts
 WORKDIR /app
 RUN chown -R cart:cart /app
 USER cart
