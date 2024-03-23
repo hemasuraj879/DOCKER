@@ -15,3 +15,13 @@ services:
 
     ports:
       -"27017":"27017"
+
+  catalogue:
+    image: catalogue:v1
+    container_name: catalogue
+    networks:
+      - roboshop
+    depends_on:
+      - mongodb
+
+  
