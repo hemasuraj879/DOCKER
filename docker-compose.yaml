@@ -26,7 +26,7 @@ services:
       - mongodb
 
   redis:
-    image: redis:v1
+    image: redis
     container_name: redis
     volumes:
       - soruce: redis
