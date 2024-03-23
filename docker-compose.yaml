@@ -1,0 +1,17 @@
+networks:
+  roboshop:
+    driver: bridge
+
+volumes:
+  mongodb:
+
+services:
+  mongodb:
+    image: mongodb:v1
+    container_name: mongodb
+    volumes:
+      - soruce: mongodb 
+        target: /data/db
+
+    ports:
+      -"27017":"27017"
