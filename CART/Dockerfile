@@ -1,5 +1,5 @@
 # Use nodejs official docker image
-FROM nodejs 
+FROM node:latest
 
 # Setting up workdir
 WORKDIR /app
