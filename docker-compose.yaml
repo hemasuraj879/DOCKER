@@ -24,4 +24,14 @@ services:
     depends_on:
       - mongodb
 
+  web:
+    image: web:v1
+    container_name: web
+    networks:
+      - roboshop
+    depends_on:
+      - catalogue
+    ports:
+      -"80:80"
+
   
