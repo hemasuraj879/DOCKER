@@ -11,5 +11,8 @@ COPY server.js .
 # Install dependencies
 RUN npm install
 
+# Expose port number
+EXPOSE 8080
+
 # Command to start the application
 CMD ["node", "server.js"]
