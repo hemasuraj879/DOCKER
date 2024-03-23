@@ -6,7 +6,7 @@ WORKDIR /app
 
 # Copy source code
 COPY server.js .
-COPY catalogue.json .
+COPY package.json .
 
 # Install the dependencies
 RUN npm install
